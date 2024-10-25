@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'  # 원하는 JDK 버전으로 변경
         
       - name: Use Node.js 20
         uses: actions/setup-node@v4
