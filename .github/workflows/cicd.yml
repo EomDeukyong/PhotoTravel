@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-java@v4.5.0
         with:
           java-version: '17'
+          distribution: 'adopt'
         
       - name: Use Node.js 20
         uses: actions/setup-node@v4
