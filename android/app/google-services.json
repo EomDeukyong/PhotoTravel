@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "498174101385",
+    "project_id": "phototravel-a678c",
+    "storage_bucket": "phototravel-a678c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498174101385:android:ac31a51eb9498ea4870358",
+        "android_client_info": {
+          "package_name": "com.phototravel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498174101385-g8rf6spt3i8jbscot8rjr50nqb6a46as.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.phototravel",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "498174101385-c0dvlcf688a2pidkoje8ohtce070ir8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmP2eTzwYMI0Fyfscyno8bOXZVpexfgGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498174101385-c0dvlcf688a2pidkoje8ohtce070ir8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
