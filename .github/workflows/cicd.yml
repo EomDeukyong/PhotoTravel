@@ -16,10 +16,10 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: '17'  # 원하는 JDK 버전으로 변경
+          java-version: '17'
         
       - name: Use Node.js 20
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.5.0
         with:
           node-version: '20'
           cache: 'npm'
