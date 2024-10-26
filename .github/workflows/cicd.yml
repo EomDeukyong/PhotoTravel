@@ -23,6 +23,12 @@ jobs:
         run: |
           echo "GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}" > .env
       
+      - name: Decode and set up release keystore
+        env:
+          RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
+        run: |
+          echo "$RELEASE_KEYSTORE" | base64 --decode > android/app/release.keystore
+      
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
@@ -36,9 +42,16 @@ jobs:
         run: chmod +x android/gradlew
       
       - name: Build Android AAB
+        env:
+          RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
         run: |
           cd android
-          ./gradlew bundleRelease
+          ./gradlew bundleRelease -Pandroid.injected.signing.store.file=release.keystore \
+                                  -Pandroid.injected.signing.store.password=$RELEASE_KEYSTORE_PASSWORD \
+                                  -Pandroid.injected.signing.key.alias=$RELEASE_KEY_ALIAS \
+                                  -Pandroid.injected.signing.key.password=$RELEASE_KEY_PASSWORD
 
       - name: Upload AAB file
         uses: actions/upload-artifact@v4

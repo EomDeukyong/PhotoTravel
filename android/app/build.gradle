@@ -96,6 +96,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            storeFile file('release.keystore')  // release.keystore 파일 경로
+            storePassword project.findProperty("android.injected.signing.store.password")  // GitHub Actions에서 설정한 비밀번호
+            keyAlias project.findProperty("android.injected.signing.key.alias")  // GitHub Actions에서 설정한 키 alias
+            keyPassword project.findProperty("android.injected.signing.key.password")  // GitHub Actions에서 설정한 키 비밀번호
+        }
     }
     buildTypes {
         debug {
@@ -104,7 +110,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
