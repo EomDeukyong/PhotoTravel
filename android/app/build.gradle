@@ -97,7 +97,7 @@ android {
             keyPassword 'android'
         }
         release {
-            storeFile file('release.keystore')  // release.keystore 파일 경로
+            storeFile file('app/release.keystore')  // release.keystore 파일 경로
             storePassword project.findProperty("android.injected.signing.store.password")  // GitHub Actions에서 설정한 비밀번호
             keyAlias project.findProperty("android.injected.signing.key.alias")  // GitHub Actions에서 설정한 키 alias
             keyPassword project.findProperty("android.injected.signing.key.password")  // GitHub Actions에서 설정한 키 비밀번호
