@@ -280,16 +280,16 @@ const ProfileScreen = () => {
       // 폴더 내 모든 파일 가져오기
       const fileList = await FolderRef.listAll();
       const fileCount = fileList.items.length; // 파일 수
-
+      if (fileCount >= 10) {
+        Alert.alert('준비 중입니다', '이미지 개수가 10개 이상입니다.'); // 알림창 표시
+        return; // 업로드 중단
+      }
       console.log(`Number of files`, fileCount);
     } catch (error) {
       console.error('Error retrieving file count:', error);
     }
 
-    if (fileCount >= 10) {
-      Alert.alert('준비 중입니다', '이미지 개수가 10개 이상입니다.'); // 알림창 표시
-      return; // 업로드 중단
-    }
+    
     launchImageLibrary(
       {
         mediaType: "photo",
@@ -309,7 +309,7 @@ const ProfileScreen = () => {
             console.log(result);
             const downloadURL = await reference.getDownloadURL();
             setUri(downloadURL); // 다운로드 URL을 상태에 저장하거나 사용
-            setLoading(False);
+            setLoading(false);
           });
         } catch (error) {
           console.error('File upload error: ', error);
@@ -600,7 +600,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   tabContent: {
-    height: 300,
+    width: 400,
+    height: 300
   },
   button: {
     position: 'absolute',
