@@ -1,4 +1,4 @@
-#사진 위치 공유 어플리케이션
+# 사진 위치 공유 어플리케이션
 <img src="/source/image/logo.png" height="400" width="100%">
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
